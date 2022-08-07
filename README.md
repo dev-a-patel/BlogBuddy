@@ -4,3 +4,5 @@ BlogBuddy is a full stack blog website based on #HTML #CSS #javaScript #PHP #MyS
 add images in app/assets/images
 
 import blogBuddy.sql from BLOG-SQL in SQL format
+
+ignore style.css ...nothing to do with this project

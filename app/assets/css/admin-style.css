@@ -1,0 +1,197 @@
+*{
+    font-family: 'Jost', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root{
+    --pri-col: teal;
+    --sec-col: black;
+    --tri-col: whitesmoke; 
+    --sdw-col: #e4e4e4;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background: whitesmoke;
+    /* padding-bottom: 10px; */
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigation */
+
+header{
+    height:55px;
+    background-color: rgb(9, 93, 93);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top:0px;
+}
+
+.logo{
+    margin:10px 15px;
+    padding:0px 5px;
+    float: left;
+}
+
+.menu-toggle{
+    display: none;
+}
+
+.nav{
+    float: right;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.nav-tab{
+    margin: 7px;
+    padding: 8px 10px;
+    transition: all 0.5s;
+}
+
+.nav-tab:hover{
+    background-color: black;
+    border-radius: 3px 10px ;
+} 
+
+.nav-tab-li{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-tab-li:hover{
+    cursor: pointer;
+}
+/* -- nav -- */
+
+.page-wrapper{
+    height:100%;
+}
+/* admin-wrapper */
+.admin-wrapper{
+    height: 100%;
+    display: flex;
+}
+
+.left-sidebar{
+    flex:2;
+    background-color: rgb(4, 128, 128);
+    height:100%;
+}
+
+.manage-list{
+    font-size:1.15rem;
+    list-style: none;
+}
+
+.list-item{
+    padding: 10px;
+    border-bottom:2px solid grey;
+    transition: all 0.25s;
+}
+
+.list-item:hover{
+    background-color: rgb(9, 93, 93);
+}
+
+.list-item a{
+    cursor: pointer;
+    color: #e4e4e4;
+    display: block;
+}
+
+.admin-content{
+    margin:auto;
+    flex:8;
+    height: 100%;
+    width: fit-content;
+    padding: 40px ;
+    overflow-y: scroll;
+}
+
+.btn{
+    padding:5px 20px;
+    margin:10px;
+    background-color: rgb(4, 128, 128);
+    color: #e4e4e4;
+    border: none;
+}
+
+.btn:hover{
+    background-color: rgb(9, 93, 93);
+}
+
+.page-title{
+    margin: 1.5rem;
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+th,
+td{
+    padding: 15px;
+    border-bottom: 1px solid grey;
+}
+
+.edit:hover,
+.publish:hover,
+.un-publish:hover,
+.delete:hover{
+    text-decoration: underline;
+}
+
+.edit{
+    color:green;
+}
+
+.delete{
+    color: red;
+}
+
+.publish,.un-publish{
+    color: blue;
+}
+
+
+/* -- admin-wrapper -- */
+
+/* Create-Post */
+.input-group label,
+.input-group input,
+.input-group textarea,
+.input-group select{
+    width: 100%;
+    display: block;
+}
+
+.input-group{
+    margin-bottom: 1rem;
+}
+
+.input-group button{
+    margin: 10px 0px;
+}
+
+/* .pub-label{
+    width: fit-content;
+    display: inline;
+} */

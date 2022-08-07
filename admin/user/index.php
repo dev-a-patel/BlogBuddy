@@ -1,0 +1,122 @@
+<?php include("C:/xampp/htdocs/blogbuddy/app/controllers/users.php"); 
+adminOnly();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"content="width-device-width,initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"content="ie-edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Jost&family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/admin-style.css">
+  <title>Manage | BlogBüddy</title>
+  <style>
+    header{
+        z-index:1;
+    }
+    body{
+        z-index:0;
+        overflow-y:hidden;
+    }
+
+    .page-wrapper{
+        height:100%;
+    }
+    /* admin-wrapper */
+    .admin-wrapper{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        position:fixed;
+        top:55px;
+    }
+
+    .left-sidebar{
+        flex:1;
+        background-color: rgb(4, 128, 128);
+        height:100%;
+    }
+
+    .admin-content{
+        margin:auto;
+        flex:5;
+        height: 100%;
+        width: fit-content;
+        padding: 50px ;
+        padding-top: 40px ;
+        overflow-y: scroll;
+        z-index:1;
+      }
+      
+      thead{
+        background:lightgrey;
+      }
+  </style>
+</head>
+
+<body>
+  <!-- nav -->
+  <?php include("C:/xampp/htdocs/blogbuddy/app/includes/adminHeader.php"); ?>
+
+  <!-- // nav -->
+
+  <!-- page-wrapper -->
+  <div class="page-wrapper">
+      <!-- ADMIN-wrapper -->
+      <div class="admin-wrapper">
+          <!-- left-sidebar -->
+          <?php include("C:/xampp/htdocs/blogbuddy/app/includes/adminSidebar.php"); ?>
+
+          <!-- // left-sidebar -->
+          
+          <!-- Admin-content -->
+          <div class="admin-content">
+            <div class="button-group">
+                <a href="create.php" class="btn">Add User</a>
+                <a href="index.php" class="btn">Manage Users</a>
+            </div>
+
+            <div class="content">
+                <h2 class="page-title">Manage Users</h2>
+
+                <?php include("C:/xampp/htdocs/blogbuddy/app/helpers/formErrors.php"); ?>
+                <?php include("C:/xampp/htdocs/blogbuddy/app/includes/messages.php"); ?>
+
+                <table>
+                    <thead>
+                        <th>S. No.</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th colspan="2" style="text-align: left;">Action</th>
+                    </thead>
+                    
+                    <tbody>
+                        <?php foreach($users as $key => $user): ?>
+                            <tr>
+                                <td><?php echo $key + 1;?></td>
+                                <td><?php echo $user['username']?></td>
+                                <td><?php if($user['admin']) {echo '<i class="fa-solid fa-user-gear"></i> Admin';} else{echo '<i class="fa-solid fa-feather-pointed"></i> Author';}?></td>
+                                <td><a href="edit.php?id=<?php echo $user['id']?>" class="edit">Edit</a></td>
+                                <td><a href="index.php?delete_id=<?php echo $user['id']?>" class="delete">Delete</a></td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+            </div>
+          </div>
+          <!-- // Admin-content -->
+      </div>
+      <!-- // ADMIN-wrapper -->
+  </div>
+  <!-- // page-wrapper -->
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  </script>
+
+  <script src="../../script.js" type="text/javascript"></script>
+<!--//scripts  -->
+</body>
+</html>
